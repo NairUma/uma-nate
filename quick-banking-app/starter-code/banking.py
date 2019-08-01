@@ -17,4 +17,34 @@
 # Replace "pass" with your code
 
 class BankAccount(object):
-    pass
+    def __init__(self, label, balance):
+        self.label = label
+        self.balance = balance
+    def __str__(self):
+        return "label is %s and the balance is %s" % (self.label, self.balance)
+    def withdraw(self, value):
+        if self.balance - value < 0:
+            print("Too large amount to be withdrawn. You currently have %s." % self.balance)
+        elif value < 0:
+            print("Invalid Input, must be a positive number.")
+        else:
+            self.balance = self.balance - value
+    def deposit(self, value):
+        if value < 0:
+            print("Invalid Input, must be a positive number.")
+        else:
+            self.balance = self.balance + value
+    def rename(self, labell):
+        if labell == "":
+            print("Can not be blank")
+        else:
+            self.label = labell
+    def transfer(self, value, dest_account):
+        if value > self.balance:
+            print("Can not transfer more than is in account get nay'nay'd")
+        elif amount < 0:
+            print("Can not transfer negative values.")
+        else:
+            self.balance = self.balance - value
+            dest_account.deposit(value)
+#user_input = int(raw_input("Enter value of deposit/withdrawal: "))
