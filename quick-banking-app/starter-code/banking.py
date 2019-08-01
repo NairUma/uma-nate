@@ -39,11 +39,11 @@ class BankAccount(object):
             print("Can not be blank")
         else:
             self.label = labell
-    def transfer(self, value, dest_account):
+    def transfer(self, dest_account, value):
         if value > self.balance:
             print("Can not transfer more than is in account get nay'nay'd")
         elif value < 0:
             print("Can not transfer negative values.")
         else:
             self.balance = self.balance - value
-            dest_account = dest_account - value
+            dest_account.deposit(value)
