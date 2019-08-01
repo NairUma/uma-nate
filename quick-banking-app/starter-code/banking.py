@@ -42,9 +42,8 @@ class BankAccount(object):
     def transfer(self, value, dest_account):
         if value > self.balance:
             print("Can not transfer more than is in account get nay'nay'd")
-        elif amount < 0:
+        elif value < 0:
             print("Can not transfer negative values.")
         else:
             self.balance = self.balance - value
-            dest_account.deposit(value)
-#user_input = int(raw_input("Enter value of deposit/withdrawal: "))
+            dest_account = dest_account - value
